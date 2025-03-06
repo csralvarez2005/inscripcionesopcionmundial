@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Inscripción</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-4">        
+        <div class="card p-4">
+            <div class="header-container text-center">
+                <img src="logo.png" alt="Fundación Opción Mundial">
+            </div>
+            <h2 class="text-center">FORMULARIO DE INSCRIPCIÓN FUNDACIÓN OPCIÓN MUNDIAL</h2>
+            <p>Este formulario permitirá a la persona que lo diligencie estar vinculada en la Fundación, haciéndola beneficiaria del convenio académico.</p>
+            <p class="text-danger">* Indica que la pregunta es obligatoria</p>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="card shadow p-4">
+            <h2 class="text-center mb-4">Datos Personales</h2>
+            <form id="formulario" name="formulario" action="crear_inscripcion.php" method="POST">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Tipo de Documento <span class="text-danger">*</span></label>
+                        <select id="tipoDocumento" name="tipoDocumento" class="form-select" required>
+                            <option value="" disabled selected>Seleccionar...</option>
+                            <option value="cedula">Cédula</option>
+                            <option value="cedula de extranjeria">Cédula de extranjería</option>
+                            <option value="pasaporte">Pasaporte</option>
+                            <option value="permiso por protección especial">Permiso por protección especial</option>
+                            <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>          
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Número de Documento <span class="text-danger">*</span></label>
+                        <input type="number" id="numeroDocumento" name="numeroDocumento" class="form-control" required autocomplete="off">
+                    </div>
+                </div>            
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Nombre y Apellidos <span class="text-danger">*</span></label>
+                        <input type="text" id="nombre" name="nombre" class="form-control" required autocomplete="off">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Barrio <span class="text-danger">*</span></label>
+                        <input type="text" id="barrio" name="barrio" class="form-control" required autocomplete="off">
+                    </div>
+                </div>           
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Dirección <span class="text-danger">*</span></label>
+                        <input type="text" id="direccion" name="direccion" class="form-control" required autocomplete="off">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Teléfono / Celular <span class="text-danger">*</span></label>
+                        <input type="tel" id="telefono" name="telefono" class="form-control" required autocomplete="off">
+                    </div>
+                </div>  
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Correo Electrónico <span class="text-danger">*</span></label>
+                        <input type="email" id="correo" name="correo" class="form-control" required autocomplete="off">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Fecha de Nacimiento <span class="text-danger">*</span></label>
+                        <input type="date" id="fechaNacimiento" name="fechaNacimiento" class="form-control" required autocomplete="off">
+                    </div>
+                </div>
+
+                <!-- SECCIÓN DEL SISBÉN -->
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Sisbén <span class="text-danger">*</span></label>
+                        <select id="sisben" name="sisben" class="form-select" required onchange="togglePuntajeSisben()">
+                            <option value="" disabled selected>Seleccionar...</option>
+                            <option value="si">Sí</option>
+                            <option value="no">No</option>                            
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Puntaje Sisbén</label>
+                        <input type="text" id="puntajeSisben" name="puntajeSisben" class="form-control" readonly>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">¿Es víctima del conflicto armado? <span class="text-danger">*</span></label>
+                        <select id="victima" name="victima" class="form-select" required>
+                            <option value="" disabled selected>Seleccionar...</option>
+                            <option value="Sí">Sí</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">¿A qué etnia perteneces? <span class="text-danger">*</span></label>
+                        <select id="etnia" name="identidad" class="form-select" required>
+                            <option value="" disabled selected>Seleccionar...</option>
+                            <option value="Indígena">Indígena</option>
+                            <option value="Afrocolombiano">Afrocolombiano</option>
+                            <option value="Raizal">Raizal</option>
+                            <option value="Palenquero">Palenquero</option>                           
+                            <option value="Mestizo">Mestizo</option>
+                        </select>
+                    </div>
+                </div>     
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">¿Tiene discapacidad? <span class="text-danger">*</span></label>
+                        <select id="discapacidad" name="discapacidad" class="form-select" required onchange="toggleDiscapacidadInput()">
+                            <option value="" disabled selected>Seleccionar...</option>
+                            <option value="Sí">Sí</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">¿Cuál discapacidad tiene?</label>
+                        <input type="text" id="tipoDiscapacidad" name="tipoDiscapacidad" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Select Escolaridad -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Último nivel de escolaridad alcanzado <span class="text-danger">*</span></label>
+                        <select id="escolaridad" name="escolaridad" class="form-select" required onchange="toggleGradoInput()">
+                            <option value="" disabled selected>Seleccionar...</option>
+                            <option value="Primaria">Primaria</option>
+                            <option value="Bachiller">Bachiller</option>
+                            <option value="Técnico">Técnico</option>
+                            <option value="Tecnólogo">Tecnólogo</option>
+                            <option value="Universitario">Universitario</option>
+                            <option value="Magíster">Magíster</option>
+                            <option value="Especialización">Especialización</option>
+                        </select>
+                    </div>
+                
+                    <!-- Input Hasta qué grado llegó -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Hasta qué grado llegó</label>
+                        <input type="number" id="hastaQueGrado" name="hastaQueGrado" class="form-control" min="1" max="11" readonly>
+                    </div>
+                </div>           
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary w-50">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>   
+
+    <script>
+        function toggleDiscapacidadInput() {
+            var selectDiscapacidad = document.getElementById("discapacidad");
+            var inputTipoDiscapacidad = document.getElementById("tipoDiscapacidad");
+
+            inputTipoDiscapacidad.readOnly = selectDiscapacidad.value !== "Sí";
+            if (selectDiscapacidad.value !== "Sí") {
+                inputTipoDiscapacidad.value = "";
+            }
+        }
+
+        function togglePuntajeSisben() {
+            var sisbenSelect = document.getElementById("sisben");
+            var puntajeInput = document.getElementById("puntajeSisben");
+
+            puntajeInput.readOnly = sisbenSelect.value !== "si";
+            if (sisbenSelect.value !== "si") {
+                puntajeInput.value = "";
+            }
+        }
+        function toggleGradoInput() {
+        var escolaridad = document.getElementById("escolaridad").value;
+        var inputGrado = document.getElementById("hastaQueGrado");
+
+        if (escolaridad === "Primaria") {
+            inputGrado.readOnly = false;
+            inputGrado.max = 5; // Máximo 5° grado en primaria
+            inputGrado.placeholder = "Ingrese de 1 a 5";
+        } else if (escolaridad === "Bachiller") {
+            inputGrado.readOnly = false;
+            inputGrado.max = 11; // Máximo 11° grado en bachillerato
+            inputGrado.placeholder = "Ingrese de 6 a 11";
+        } else {
+            inputGrado.readOnly = true;
+            inputGrado.value = "";
+            inputGrado.placeholder = "";
+        }
+    }
+
+
+    </script>
+
+</body>
+</html>

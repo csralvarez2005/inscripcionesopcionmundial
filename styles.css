@@ -1,0 +1,68 @@
+body {
+    background-color: #B5C18E; /* Verde oliva claro */
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 800px;
+    margin: 0 auto; /* Centrar en la pantalla */
+}
+
+/* Asegurar que ambos containers tengan las mismas dimensiones y márgenes */
+.container.mt-4, .container.mt-5 {
+    max-width: 800px;
+    margin-top: 40px; /* Igualar el espaciado */
+}
+
+/* Encabezado */
+.header-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%; /* Asegurar que tome todo el ancho */
+}
+
+.header-box {
+    background: white;
+    border: 3px solid #556B2F; /* Verde oliva oscuro */
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+}
+
+/* Imagen del encabezado */
+.header-container img {
+    width: 100%; /* Ajustar al ancho del contenedor */
+    max-width: 800px; /* Igual al ancho del container */
+    height: auto;
+    border-radius: 10px; /* Redondear bordes */
+    display: block;
+    margin: 0 auto; /* Centrar la imagen */
+}
+
+/* Estilo de tarjetas */
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px; /* Asegurar espaciado interno */
+}
+
+/* Estilos de títulos */
+h2 {
+    color: #6B8E23; /* Verde oliva */
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #6B8E23;
+    border-color: #6B8E23;
+}
+
+.btn-primary:hover {
+    background-color: #556B2F; /* Verde más oscuro al pasar el mouse */
+    border-color: #556B2F;
+}
