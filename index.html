@@ -72,9 +72,7 @@
                         <label class="form-label">Fecha de Nacimiento <span class="text-danger">*</span></label>
                         <input type="date" id="fechaNacimiento" name="fechaNacimiento" class="form-control" required autocomplete="off">
                     </div>
-                </div>
-
-                <!-- SECCIÓN DEL SISBÉN -->
+                </div>               
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label class="form-label">Sisbén <span class="text-danger">*</span></label>
@@ -147,8 +145,79 @@
                         <label class="form-label">Hasta qué grado llegó</label>
                         <input type="number" id="hastaQueGrado" name="hastaQueGrado" class="form-control" min="1" max="11" readonly>
                     </div>
-                </div>           
+                </div>  
+                <h2 class="text-center mb-4"> Datos del acudiente o tutor legal</h2>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Nombre y Apellidos del Acudiente <span class="text-danger">*</span></label>
+                        <input type="text" id="nombreAcudiente" name="nombreAcudiente" class="form-control" required autocomplete="off">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Teléfono / Celular del Acudiente <span class="text-danger">*</span></label>
+                        <input type="tel" id="telefonoAcudiente" name="telefonoAcudiente" class="form-control" required autocomplete="off">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Correo Electrónico del Acudiente <span class="text-danger">*</span></label>
+                        <input type="email" id="correoAcudiente" name="correoAcudiente" class="form-control" required autocomplete="off">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Barrio del Acudiente <span class="text-danger">*</span></label>
+                        <input type="text" id="barrioAcudiente" name="barrioAcudiente" class="form-control" required autocomplete="off">
+                    </div>
+                </div>
 
+
+                <h2 class="text-center mb-4"> Datos de la ayuda </h2>
+
+                <div class="row">
+                    <!-- Programa que desea estudiar -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Programa que desea estudiar <span class="text-danger">*</span></label>
+                        <select id="programaEstudio" name="programaEstudio" class="form-select" required>
+                            <option value="" disabled selected>Seleccionar...</option>
+                            <option value="Ingeniería">Ingeniería</option>
+                            <option value="Medicina">Medicina</option>
+                            <option value="Derecho">Derecho</option>
+                            <option value="Administración">Administración</option>
+                            <option value="Psicología">Psicología</option>
+                        </select>
+                    </div>                
+                    <!-- Persona que lo postula -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Persona que lo postula <span class="text-danger">*</span></label>
+                        <select id="personaPostula" name="personaPostula" class="form-select" required>
+                            <option value="" disabled selected>Seleccionar...</option>
+                            <option value="Fundación">Fundación</option>
+                            <option value="Junta de Acción Comunal">Junta de Acción Comunal</option>
+                            <option value="Iglesia">Iglesia</option>
+                            <option value="Líder">Líder</option>
+                            <option value="AJOSAC">AJOSAC</option>
+                            <option value="Entidad Pública">Entidad Pública</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">          
+                
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Nombre de quien lo postula <span class="text-danger">*</span></label>
+                        <input type="text" id="nombrePostula" name="nombrePostula" class="form-control" required autocomplete="off">
+                    </div>
+                
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Teléfono / Celular de quien lo postula <span class="text-danger">*</span></label>
+                        <input type="tel" id="telefonoPostula" name="telefonoPostula" class="form-control" required autocomplete="off">
+                    </div>
+                
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Correo Electrónico de quien lo postula <span class="text-danger">*</span></label>
+                        <input type="email" id="correoPostula" name="correoPostula" class="form-control" required autocomplete="off">
+                    </div>
+                </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary w-50">Enviar</button>
                 </div>
@@ -193,6 +262,24 @@
             inputGrado.value = "";
             inputGrado.placeholder = "";
         }
+
+        let currentStep = 1;
+
+function showStep(step) {
+    document.querySelectorAll('.step').forEach((element) => {
+        element.classList.remove('active-step');
+    });
+    document.getElementById(`step-${step}`).classList.add('active-step');
+    currentStep = step;
+}
+
+function nextStep(step) {
+    showStep(step);
+}
+
+function prevStep(step) {
+    showStep(step);
+}
     }
 
 

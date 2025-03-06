@@ -19,23 +19,7 @@ $inscripciones = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Inscripciones</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .custom-container {
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
-            max-width: 100%;
-            overflow: hidden;
-        }
-
-        .table-responsive {
-            max-height: 400px; /* Altura máxima con scroll */
-            overflow-y: auto;  /* Scroll vertical */
-            overflow-x: auto;  /* Scroll horizontal si es necesario */
-        }
-    </style>
+    <link rel="stylesheet" href="style2.css">
 </head>
 <body class="bg-light">
     <div class="container mt-5">
@@ -58,9 +42,19 @@ $inscripciones = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <th>Puntaje Sisbén</th>
                             <th>Víctima Conflicto</th>
                             <th>Discapacidad</th>
-                            <th>Tipo Discapacidad</th> <!-- NUEVA COLUMNA -->
+                            <th>Tipo Discapacidad</th>
                             <th>Identidad</th>
                             <th>Escolaridad</th>
+                            <th>Hasta Qué Grado</th>
+                            <th>Nombre Acudiente</th>
+                            <th>Teléfono Acudiente</th>
+                            <th>Correo Acudiente</th>
+                            <th>Barrio Acudiente</th>
+                            <th>Programa Estudio</th>
+                            <th>Persona que Postula</th>
+                            <th>Nombre de quien Postula</th>
+                            <th>Teléfono de quien Postula</th>
+                            <th>Correo de quien Postula</th>
                             <th>Fecha Registro</th>
                         </tr>
                     </thead>
@@ -68,24 +62,32 @@ $inscripciones = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <?php foreach ($inscripciones as $inscripcion) : ?>
                             <tr>
                                 <td><?= htmlspecialchars($inscripcion['id']) ?></td>
-                                <td><?= htmlspecialchars($inscripcion['tipo_documento']) ?></td>
-                                <td><?= htmlspecialchars($inscripcion['numero_documento']) ?></td>
+                                <td><?= htmlspecialchars($inscripcion['tipoDocumento']) ?></td>
+                                <td><?= htmlspecialchars($inscripcion['numeroDocumento']) ?></td>
                                 <td><?= htmlspecialchars($inscripcion['nombre']) ?></td>
                                 <td><?= htmlspecialchars($inscripcion['barrio']) ?></td>
                                 <td><?= htmlspecialchars($inscripcion['direccion']) ?></td>
                                 <td><?= htmlspecialchars($inscripcion['telefono']) ?></td>
                                 <td><?= htmlspecialchars($inscripcion['correo']) ?></td>
-                                <td><?= htmlspecialchars($inscripcion['fecha_nacimiento']) ?></td>
+                                <td><?= htmlspecialchars($inscripcion['fechaNacimiento']) ?></td>
                                 <td><?= htmlspecialchars($inscripcion['sisben']) ?></td>
-                                <td><?= htmlspecialchars($inscripcion['puntaje_sisben']) ?></td>
-                                <td><?= htmlspecialchars($inscripcion['victima_conflicto']) ?></td>
+                                <td><?= htmlspecialchars($inscripcion['puntajeSisben']) ?></td>
+                                <td><?= htmlspecialchars($inscripcion['victima']) ?></td>
                                 <td><?= htmlspecialchars($inscripcion['discapacidad']) ?></td>
-                                <td>
-                                    <?= !empty($inscripcion['tipo_discapacidad']) ? htmlspecialchars($inscripcion['tipo_discapacidad']) : "N/A"; ?>
-                                </td> <!-- NUEVO CAMPO -->
+                                <td><?= !empty($inscripcion['tipo_discapacidad']) ? htmlspecialchars($inscripcion['tipo_discapacidad']) : "N/A"; ?></td>
                                 <td><?= htmlspecialchars($inscripcion['identidad']) ?></td>
                                 <td><?= htmlspecialchars($inscripcion['escolaridad']) ?></td>
-                                <td><?= date("d/m/Y", strtotime($inscripcion['fecha_registro'])) ?></td> 
+                                <td><?= !empty($inscripcion['hasta_que_grado']) ? htmlspecialchars($inscripcion['hasta_que_grado']) : "N/A"; ?></td>
+                                <td><?= htmlspecialchars($inscripcion['nombreAcudiente']) ?></td>
+                                <td><?= htmlspecialchars($inscripcion['telefonoAcudiente']) ?></td>
+                                <td><?= htmlspecialchars($inscripcion['correoAcudiente']) ?></td>
+                                <td><?= htmlspecialchars($inscripcion['barrioAcudiente']) ?></td>
+                                <td><?= htmlspecialchars($inscripcion['programaEstudio']) ?></td>
+                                <td><?= htmlspecialchars($inscripcion['personaPostula']) ?></td>
+                                <td><?= !empty($inscripcion['nombrePostula']) ? htmlspecialchars($inscripcion['nombrePostula']) : "N/A"; ?></td>
+                                <td><?= !empty($inscripcion['telefonoPostula']) ? htmlspecialchars($inscripcion['telefonoPostula']) : "N/A"; ?></td>
+                                <td><?= !empty($inscripcion['correoPostula']) ? htmlspecialchars($inscripcion['correoPostula']) : "N/A"; ?></td>
+                                <td><?= date("d/m/Y", strtotime($inscripcion['fecha_registro'])) ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

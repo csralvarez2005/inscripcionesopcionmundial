@@ -1,0 +1,16 @@
+.custom-container {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.table-responsive {
+    max-height: 500px; /* Altura con scroll */
+    overflow-y: auto;  
+    overflow-x: auto;  
+
+}
