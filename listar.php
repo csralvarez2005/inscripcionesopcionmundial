@@ -18,16 +18,20 @@ $inscripciones = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Inscripciones</title>
+    
+    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style2.css">
+    
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="styles2.css">
 </head>
 <body class="bg-light">
     <div class="container mt-5">
         <div class="custom-container">
-            <h2 class="mb-3 text-center">Lista de Inscripciones</h2>
+            <h2 class="mb-3 text-center text-success">Lista de Inscripciones</h2>
             <div class="table-responsive">
                 <table class="table table-striped">
-                    <thead class="table-primary">
+                    <thead class="table-success">
                         <tr>
                             <th>ID</th>
                             <th>Tipo Documento</th>
@@ -74,10 +78,10 @@ $inscripciones = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <td><?= htmlspecialchars($inscripcion['puntajeSisben']) ?></td>
                                 <td><?= htmlspecialchars($inscripcion['victima']) ?></td>
                                 <td><?= htmlspecialchars($inscripcion['discapacidad']) ?></td>
-                                <td><?= !empty($inscripcion['tipo_discapacidad']) ? htmlspecialchars($inscripcion['tipo_discapacidad']) : "N/A"; ?></td>
+                                <td><?= !empty($inscripcion['tipoDiscapacidad']) ? htmlspecialchars($inscripcion['tipoDiscapacidad']) : "N/A"; ?></td>
                                 <td><?= htmlspecialchars($inscripcion['identidad']) ?></td>
                                 <td><?= htmlspecialchars($inscripcion['escolaridad']) ?></td>
-                                <td><?= !empty($inscripcion['hasta_que_grado']) ? htmlspecialchars($inscripcion['hasta_que_grado']) : "N/A"; ?></td>
+                                <td><?= !empty($inscripcion['hastaQueGrado']) ? htmlspecialchars($inscripcion['hastaQueGrado']) : "N/A"; ?></td>
                                 <td><?= htmlspecialchars($inscripcion['nombreAcudiente']) ?></td>
                                 <td><?= htmlspecialchars($inscripcion['telefonoAcudiente']) ?></td>
                                 <td><?= htmlspecialchars($inscripcion['correoAcudiente']) ?></td>

@@ -1,5 +1,5 @@
 .custom-container {
-    border: 2px solid #ddd;
+    border: 2px solid #28a745; /* Verde Bootstrap */
     border-radius: 10px;
     padding: 20px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
@@ -8,9 +8,57 @@
     overflow: hidden;
 }
 
+/* Estilos para la tabla */
 .table-responsive {
     max-height: 500px; /* Altura con scroll */
     overflow-y: auto;  
     overflow-x: auto;  
+}
 
+.table th {
+    background-color: #2591f7 !important;
+    color: rgb(0, 0, 0) !important;
+    text-align: center;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #d4edda !important;
+}
+
+/* Ajuste de fuentes */
+.table td, .table th {
+    font-size: 14px;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Justificación de contenido específico */
+.table td:nth-child(1),  /* ID */
+.table td:nth-child(3),  /* Número Documento */
+.table td:nth-child(7),  /* Teléfono */
+.table td:nth-child(10), /* Sisbén */
+.table td:nth-child(11), /* Puntaje Sisbén */
+.table td:nth-child(19), /* Teléfono Acudiente */
+.table td:nth-child(25), /* Teléfono Postulante */
+.table td:nth-child(27)  /* Fecha Registro */ {
+    text-align: center;
+}
+
+.table td:nth-child(5),  /* Barrio */
+.table td:nth-child(6),  /* Dirección */
+.table td:nth-child(8),  /* Correo */
+.table td:nth-child(20), /* Correo Acudiente */
+.table td:nth-child(26)  /* Correo Postulante */ {
+    text-align: left;
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+    .table th, .table td {
+        font-size: 12px;
+    }
 }

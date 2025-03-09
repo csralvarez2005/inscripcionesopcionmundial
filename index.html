@@ -25,15 +25,9 @@
             <form id="formulario" name="formulario" action="crear_inscripcion.php" method="POST">
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label class="form-label">Tipo de Documento <span class="text-danger">*</span></label>
-                        <select id="tipoDocumento" name="tipoDocumento" class="form-select" required>
-                            <option value="" disabled selected>Seleccionar...</option>
-                            <option value="cedula">Cédula</option>
-                            <option value="cedula de extranjeria">Cédula de extranjería</option>
-                            <option value="pasaporte">Pasaporte</option>
-                            <option value="permiso por protección especial">Permiso por protección especial</option>
-                            <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>          
-                        </select>
+                        <label class="form-label">Nombre y Apellidos <span class="text-danger">*</span></label>
+                        <input type="text" id="nombre" name="nombre" class="form-control" required autocomplete="off">
+                       
                     </div>
                     <div class="col-md-6 mb-3">
                         <label class="form-label">Número de Documento <span class="text-danger">*</span></label>
@@ -43,18 +37,15 @@
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label class="form-label">Nombre y Apellidos <span class="text-danger">*</span></label>
-                        <input type="text" id="nombre" name="nombre" class="form-control" required autocomplete="off">
+                        
+                        
                     </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Barrio <span class="text-danger">*</span></label>
-                        <input type="text" id="barrio" name="barrio" class="form-control" required autocomplete="off">
-                    </div>
+                    <div class="col-md-6 mb-3">                
                 </div>           
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label class="form-label">Dirección <span class="text-danger">*</span></label>
+                        <label class="form-label">Donde vives <span class="text-danger">*</span></label>
                         <input type="text" id="direccion" name="direccion" class="form-control" required autocomplete="off">
                     </div>
                     <div class="col-md-6 mb-3">
@@ -64,13 +55,9 @@
                 </div>  
 
                 <div class="row">
+                  
                     <div class="col-md-6 mb-3">
-                        <label class="form-label">Correo Electrónico <span class="text-danger">*</span></label>
-                        <input type="email" id="correo" name="correo" class="form-control" required autocomplete="off">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Fecha de Nacimiento <span class="text-danger">*</span></label>
-                        <input type="date" id="fechaNacimiento" name="fechaNacimiento" class="form-control" required autocomplete="off">
+                        
                     </div>
                 </div>               
                 <div class="row">
@@ -83,100 +70,46 @@
                         </select>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label class="form-label">Puntaje Sisbén</label>
-                        <input type="text" id="puntajeSisben" name="puntajeSisben" class="form-control" readonly>
+                        <label class="form-label">Ingrese su edad <span class="text-danger">*</span></label>
+                        <input type="number" id="edad" name="edad" class="form-control" required min="1" max="120">
+
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label class="form-label">¿Es víctima del conflicto armado? <span class="text-danger">*</span></label>
+                        <label class="form-label">Como se entero de las covocatoria <span class="text-danger">*</span></label>
                         <select id="victima" name="victima" class="form-select" required>
                             <option value="" disabled selected>Seleccionar...</option>
-                            <option value="Sí">Sí</option>
-                            <option value="No">No</option>
+                            <option value="Sí">Junta comunal</option>
+                            <option value="No">Fundaciones</option>
+                            <option value="No">Iglecias</option>
+                            <option value="No">Asojac</option>
+                            <option value="No">Entidad del estado (alcaldia gobernación)</option>
                         </select>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label class="form-label">¿A qué etnia perteneces? <span class="text-danger">*</span></label>
-                        <select id="etnia" name="identidad" class="form-select" required>
-                            <option value="" disabled selected>Seleccionar...</option>
-                            <option value="Indígena">Indígena</option>
-                            <option value="Afrocolombiano">Afrocolombiano</option>
-                            <option value="Raizal">Raizal</option>
-                            <option value="Palenquero">Palenquero</option>                           
-                            <option value="Mestizo">Mestizo</option>
-                        </select>
-                    </div>
-                </div>     
-
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">¿Tiene discapacidad? <span class="text-danger">*</span></label>
-                        <select id="discapacidad" name="discapacidad" class="form-select" required onchange="toggleDiscapacidadInput()">
-                            <option value="" disabled selected>Seleccionar...</option>
-                            <option value="Sí">Sí</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">¿Cuál discapacidad tiene?</label>
-                        <input type="text" id="tipoDiscapacidad" name="tipoDiscapacidad" class="form-control" readonly>
+                        <label class="form-label">Hasta qué grado llegó</label>
+                        <input type="text" id="hastaQueGrado" name="hastaQueGrado" class="form-control" required>
+                        
                     </div>
                 </div>
                 <div class="row">
                     <!-- Select Escolaridad -->
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Último nivel de escolaridad alcanzado <span class="text-danger">*</span></label>
-                        <select id="escolaridad" name="escolaridad" class="form-select" required onchange="toggleGradoInput()">
-                            <option value="" disabled selected>Seleccionar...</option>
-                            <option value="Primaria">Primaria</option>
-                            <option value="Bachiller">Bachiller</option>
-                            <option value="Técnico">Técnico</option>
-                            <option value="Tecnólogo">Tecnólogo</option>
-                            <option value="Universitario">Universitario</option>
-                            <option value="Magíster">Magíster</option>
-                            <option value="Especialización">Especialización</option>
-                        </select>
-                    </div>
+                   <div class="col-md-6 mb-3">
+                    </div> 
                 
                     <!-- Input Hasta qué grado llegó -->
                     <div class="col-md-6 mb-3">
-                        <label class="form-label">Hasta qué grado llegó</label>
-                        <input type="number" id="hastaQueGrado" name="hastaQueGrado" class="form-control" min="1" max="11" readonly>
+                        
                     </div>
                 </div>  
-                <h2 class="text-center mb-4"> Datos del acudiente o tutor legal</h2>
-                
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Nombre y Apellidos del Acudiente <span class="text-danger">*</span></label>
-                        <input type="text" id="nombreAcudiente" name="nombreAcudiente" class="form-control" required autocomplete="off">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Teléfono / Celular del Acudiente <span class="text-danger">*</span></label>
-                        <input type="tel" id="telefonoAcudiente" name="telefonoAcudiente" class="form-control" required autocomplete="off">
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Correo Electrónico del Acudiente <span class="text-danger">*</span></label>
-                        <input type="email" id="correoAcudiente" name="correoAcudiente" class="form-control" required autocomplete="off">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Barrio del Acudiente <span class="text-danger">*</span></label>
-                        <input type="text" id="barrioAcudiente" name="barrioAcudiente" class="form-control" required autocomplete="off">
-                    </div>
-                </div>
-
-
-                <h2 class="text-center mb-4"> Datos de la ayuda </h2>
+                <h2 class="text-center mb-4"> Programa subdio educactivo del aspirante </h2>
 
                 <div class="row">
                     <!-- Programa que desea estudiar -->
                     <div class="col-md-6 mb-3">
-                        <label class="form-label">Programa que desea estudiar <span class="text-danger">*</span></label>
+                        <label class="form-label">Programa tecnico <span class="text-danger">*</span></label>
                         <select id="programaEstudio" name="programaEstudio" class="form-select" required>
                             <option value="" disabled selected>Seleccionar...</option>
                             <option value="Ingeniería">Ingeniería</option>
@@ -223,67 +156,7 @@
                 </div>
             </form>
         </div>
-    </div>   
-
-    <script>
-        function toggleDiscapacidadInput() {
-            var selectDiscapacidad = document.getElementById("discapacidad");
-            var inputTipoDiscapacidad = document.getElementById("tipoDiscapacidad");
-
-            inputTipoDiscapacidad.readOnly = selectDiscapacidad.value !== "Sí";
-            if (selectDiscapacidad.value !== "Sí") {
-                inputTipoDiscapacidad.value = "";
-            }
-        }
-
-        function togglePuntajeSisben() {
-            var sisbenSelect = document.getElementById("sisben");
-            var puntajeInput = document.getElementById("puntajeSisben");
-
-            puntajeInput.readOnly = sisbenSelect.value !== "si";
-            if (sisbenSelect.value !== "si") {
-                puntajeInput.value = "";
-            }
-        }
-        function toggleGradoInput() {
-        var escolaridad = document.getElementById("escolaridad").value;
-        var inputGrado = document.getElementById("hastaQueGrado");
-
-        if (escolaridad === "Primaria") {
-            inputGrado.readOnly = false;
-            inputGrado.max = 5; // Máximo 5° grado en primaria
-            inputGrado.placeholder = "Ingrese de 1 a 5";
-        } else if (escolaridad === "Bachiller") {
-            inputGrado.readOnly = false;
-            inputGrado.max = 11; // Máximo 11° grado en bachillerato
-            inputGrado.placeholder = "Ingrese de 6 a 11";
-        } else {
-            inputGrado.readOnly = true;
-            inputGrado.value = "";
-            inputGrado.placeholder = "";
-        }
-
-        let currentStep = 1;
-
-function showStep(step) {
-    document.querySelectorAll('.step').forEach((element) => {
-        element.classList.remove('active-step');
-    });
-    document.getElementById(`step-${step}`).classList.add('active-step');
-    currentStep = step;
-}
-
-function nextStep(step) {
-    showStep(step);
-}
-
-function prevStep(step) {
-    showStep(step);
-}
-    }
-
-
-    </script>
+    </div>       
 
 </body>
 </html>
